@@ -1,3 +1,5 @@
+<img src="https://tryhackme-badges.s3.amazonaws.com/HITCHER.png" alt="Your Image Badge" />
+
 ## Repository Contents
 
 ### Write-Ups
