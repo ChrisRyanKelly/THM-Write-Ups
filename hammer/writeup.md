@@ -22,7 +22,8 @@ An initial port scan identified two open ports. Given that this room focuses on 
 
 This script, a wrapper for **naabu** (a port scanner by Project Discovery), conducts a full port scan and passes all identified open ports to **nmap** for a service version check.
 
----
+#
+
 ### Enumeration: 1337/tcp
 
 Using **httpie** to inspect the target identified during the scanning phase reveals the page source code. Upon review, a developer comment is discovered, outlining the site's directory naming convention.
@@ -72,7 +73,8 @@ http --form --follow POST hammer.thm:1337/reset_password.php email=tester@hammer
 ```
 <img src="https://github.com/ChrisRyanKelly/THM-Write-Ups/blob/master/hammer/screenshots/2fa-mech 17.19.46.png" width="1280" height="610">
 
----
+#
+
 ### Authentication Bypass
 
 Using a custom script (available on my GitHub page) and the information gathered during the enumeration of port 1337, a successful login was achieved, granting access to the user dashboard.
@@ -105,7 +107,8 @@ http --form -v --follow POST hammer.thm:1337/ email=tester@hammer.thm password=P
 ```
 <img src="https://github.com/ChrisRyanKelly/THM-Write-Ups/blob/master/hammer/screenshots/apicall.png" width="1280" height="375">
 
----
+#
+
 ### Initial Access
 
 The dashboard page includes an input field that appears vulnerable to command injection. However, the only command initially executable is `ls`. Commands are executed via API calls to the `execute_command.php` endpoint.
@@ -162,7 +165,6 @@ Ensure you have a listener ready (e.g., `nc -lvnp 9999`) before sending the requ
 
 ---
 ### Conclusion
-
 This write-up is designed to offer a unique perspective on tackling the room without revealing any flags, allowing readers to experience the challenge firsthand. The goal is to highlight key methodologies, tools, and techniques used throughout the process while encouraging hands-on learning.
 
 Additionally, this write-up served as an opportunity to enhance my scripting and exploit development skills. All the scripts referenced here have been shared on my GitHub page, where you can find them to assist in your own exploration of this room. Feel free to use and adapt them to deepen your understanding and refine your approach.
